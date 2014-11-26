@@ -17,7 +17,7 @@ define(function (require) {
     Resolver.disableExceptionCapture();
 
     // 加载路由配置信息
-    firework.load(require('./config'));
+    firework.load(require('../route/config.json'));
 
     // 完成页面加载后隐藏splash
     firework.on('afterload', function () {
@@ -26,7 +26,7 @@ define(function (require) {
 
     var config = {
             // 加载公共模版
-            template: require('./common/common.tpl'),
+            template: require('tpl/common/main.tpl'),
 
             viewport: {
                 transition: 'slide'
@@ -49,8 +49,8 @@ define(function (require) {
         };
 
     return {
-        init: function () {
-            firework.start('viewport', config);
+        init: function (global) {
+            firework.start('viewport', config, global);
         }
     };
 

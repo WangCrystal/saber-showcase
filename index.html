@@ -9,13 +9,15 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
 
-    <link rel="stylesheet" href="src/common/app.css">
-    <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+    <link rel="stylesheet" href="/src/common/app.css">
+    <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-6/esl.js"></script>
 
     <script>
     require.config({
-        'baseUrl': 'src',
-        'paths': {},
+        'baseUrl': '/src',
+        'paths': {
+            'tpl': '../tpl'
+        },
         'packages': [
             {
                 'name': 'etpl',
@@ -39,7 +41,7 @@
             },
             {
                 'name': 'saber-firework',
-                'location': '../dep/saber-firework/1.0.0/src',
+                'location': '../dep/saber-firework/2.0.0/src',
                 'main': 'main'
             },
             {
@@ -54,7 +56,7 @@
             },
             {
                 'name': 'saber-router',
-                'location': '../dep/saber-router/1.0.0/src',
+                'location': '../dep/saber-router/2.0.0/src',
                 'main': 'main'
             },
             {
@@ -79,12 +81,12 @@
             },
             {
                 'name': 'saber-uri',
-                'location': '../dep/saber-uri/1.0.0/src',
+                'location': '../dep/saber-uri/1.0.1/src',
                 'main': 'main'
             },
             {
                 'name': 'saber-viewport',
-                'location': '../dep/saber-viewport/1.0.0/src',
+                'location': '../dep/saber-viewport/1.0.1/src',
                 'main': 'main'
             },
             {
@@ -103,11 +105,18 @@
 
 <body>
     <div id="splash-screen"></div>
-    <div id="viewport"></div>
+    <div id="viewport">
+        <!-- rebas: content -->
+    </div>
 
     <script>
-        require(['app'], function (app) {
-            app.init();
+        define('global-data', function () {
+            return <!-- rebas: data -->;
+        });
+    </script>
+    <script>
+        require(['app', 'global-data'], function (app, global) {
+            app.init(global);
         });
     </script>
 </body>

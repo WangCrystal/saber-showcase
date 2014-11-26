@@ -13,12 +13,7 @@ define(function (require) {
     var config = {};
 
     config.fetch = function(query) {
-        if (!query.id) {
-            return Resolver.resolved({detail: {}, comments: []});
-        }
-
-        var url = URL + query.id;
-        return ajax.get(url);
+        return ajax.get(URL + query.id);
     };
 
     return config;

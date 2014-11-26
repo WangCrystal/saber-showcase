@@ -7,7 +7,7 @@ define(function (require) {
 
     var config = {};
 
-    config.template = require('./index.tpl');
+    config.template = require('tpl/post/index.tpl');
 
     return config;
 

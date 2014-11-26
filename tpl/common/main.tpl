@@ -2,7 +2,7 @@
 <!-- var: pageTitle = ${pageTitle} || 'Startup News' -->
 <header class="ui-bar main-header" data-ui="primary header" data-viewport-bar="header" data-name="${pageTitle}">
     <!-- if: ${showBack} -->
-    <a href="#" class="ui-btn" data-ui="primary icon-left">
+    <a href="/" class="ui-btn" data-ui="primary icon-left">
         <i class="icon-left"></i>
         返回
     </a>
@@ -16,13 +16,13 @@
         <!-- if: ${pageName} == 'list_hot' -->
         <a class="ui-btn" data-ui="active">热门</a>
         <!-- else -->
-        <a class="ui-btn" href="#/">热门</a>
+        <a class="ui-btn" href="/">热门</a>
         <!-- /if -->
 
         <!-- if: ${pageName} == 'list_new' -->
         <a class="ui-btn" data-ui="active">最新</a>
         <!-- else -->
-        <a class="ui-btn" href="#/list/new">最新</a>
+        <a class="ui-btn" href="/list/new">最新</a>
         <!-- /if -->
     </div>
 </nav>
@@ -33,7 +33,7 @@
 <!-- for: ${list} as ${item}, ${index} -->
 
 <!-- if: ${item.comments} > 0 -->
-<a href="#/post/${item.id}" class="news-item">
+<a href="/post/${item.id}" class="news-item">
 <!-- else -->
 <a href="${item.url}" target="_blank" class="news-item">
 <!-- /if -->

@@ -1,3 +1,5 @@
+var route2js = require('route2js/lib/adapter/edp-webserver');
+
 var epr = require( 'edp-provider-rider' );
 var riderUI = require('rider-ui');
 
@@ -13,11 +15,8 @@ exports.documentRoot = __dirname;
 exports.getLocations = function () {
     return [
         {
-            location: /\/$/,
-            handler: [
-                home( 'index.html' ),
-                livereload()
-            ]
+            location: /\/[^.\/]*$/,
+            handler: proxy('127.0.0.1', '8000')
         },
         {
             location: /\.css($|\?)/,
@@ -30,18 +29,13 @@ exports.getLocations = function () {
             ]
         },
         {
+            location: /^[^\?]+?\.json\.js($|\?)/,
+            handler: route2js()
+        },
+        {
             location: /\.tpl\.js($|\?)/,
             handler: [
                 html2js()
-            ]
-        },
-        {
-            location: /^\/(feed|post)\/*/,
-            handler: [
-                function (context) {
-                    delete context.request.headers.host;
-                },
-                proxy('startupnews.duapp.com')
             ]
         },
         {

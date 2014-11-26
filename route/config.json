@@ -1,0 +1,5 @@
+[
+    {"path": "/", "action": "list/hot", "index": 101, "cached": true},
+    {"path": "/list/new", "action": "list/new", "index": 102, "cached": true},
+    {"path": "/post/:id", "action": "post/index", "index": 201}
+]

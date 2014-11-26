@@ -9,7 +9,7 @@ define(function (require) {
 
     config.constructor = require('./View');
 
-    config.template = require('./hot.tpl');
+    config.template = require('tpl/list/hot.tpl');
 
     return config;
 

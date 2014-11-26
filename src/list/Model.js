@@ -46,17 +46,18 @@ define(function (require) {
         var me = this;
         var url = this.url + (query.page ? '?page=' + query.page : '');
 
-        return ajax.get(url).success(function (data) {
-            var res = {};
-
-            res.list = data.data || [];
+        return ajax.get(url).success(function (res) {
             process(res.list);
             me.data = me.data.concat(res.list);
-            me.moreToken = data.condition.more;
-            res.more = !!me.moreToken;
+            me.moreToken = res.more;
 
             return res;
         });
+    };
+
+    Model.prototype.fulfill = function (data) {
+        this.data = data.list;
+        this.moreToken = data.more;
     };
 
     Model.prototype.more = function () {
