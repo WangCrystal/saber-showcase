@@ -22,7 +22,7 @@
         <!-- if: ${pageName} == 'list_new' -->
         <a class="ui-btn" data-ui="active">最新</a>
         <!-- else -->
-        <a class="ui-btn" href="/list/new">最新</a>
+        <a class="ui-btn" href="/new">最新</a>
         <!-- /if -->
     </div>
 </nav>
