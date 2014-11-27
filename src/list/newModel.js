@@ -9,7 +9,7 @@ define(function (require) {
 
     config.constructor = require('./Model');
 
-    config.url = '/list/new';
+    config.url = '/list/new'
 
     return config;
 

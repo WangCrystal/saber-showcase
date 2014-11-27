@@ -42,11 +42,9 @@ define(function (require) {
 
     inherits(Model, BaseModel);
 
-    Model.prototype.fetch = function (query) {
+    Model.prototype.query = function (page) {
         var me = this;
-        var url = this.url + (query.page ? '?page=' + query.page : '');
-
-        return ajax.get(url).success(function (res) {
+        return ajax.get(this.url + '?page=' + page).success(function (res) {
             process(res.list);
             me.data = me.data.concat(res.list);
             me.moreToken = res.more;
@@ -64,7 +62,7 @@ define(function (require) {
         var token = this.moreToken;
         if (token) {
             this.moreToken = null;
-            return this.fetch({page: token});
+            return this.query(token);
         }
         else {
             return Resolver.rejected();
