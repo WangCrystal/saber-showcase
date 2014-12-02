@@ -108,15 +108,9 @@
     <div id="viewport">
         <!-- rebas: content -->
     </div>
-
     <script>
-        define('global-data', function () {
-            return <!-- rebas: data -->;
-        });
-    </script>
-    <script>
-        require(['app', 'global-data'], function (app, global) {
-            app.init(global);
+        require(['app'], function (app) {
+            app.init();
         });
     </script>
 </body>

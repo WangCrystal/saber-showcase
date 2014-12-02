@@ -49,8 +49,8 @@ define(function (require) {
         };
 
     return {
-        init: function (global) {
-            firework.start('viewport', config, global);
+        init: function () {
+            firework.start('viewport', config);
         }
     };
 
