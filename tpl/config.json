@@ -1,0 +1,5 @@
+{
+    "filters": {
+        "date": "./filters/date"
+    }
+}

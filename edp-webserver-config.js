@@ -1,4 +1,7 @@
-var route2js = require('route2js/lib/adapter/edp-webserver');
+var transfer = require('rebas-transfer');
+var c2a = require('c2a');
+
+var transfer = require('rebas-transfer');
 
 var epr = require( 'edp-provider-rider' );
 var riderUI = require('rider-ui');
@@ -29,14 +32,20 @@ exports.getLocations = function () {
             ]
         },
         {
-            location: /^[^\?]+?\.json\.js($|\?)/,
-            handler: route2js()
+            location: /^\/route\/.*\.json\.js(:?$|\?)/,
+            handler: transfer.edpWebserver('route')
+        },
+        {
+            location: /^\/tpl\/.*\.json\.js(:?$|\?)/,
+            handler: transfer.edpWebserver('tpl')
         },
         {
             location: /\.tpl\.js($|\?)/,
-            handler: [
-                html2js()
-            ]
+            handler: html2js()
+        },
+        {
+            location: /^\/tpl\/.*\.js(:?$|\?)/,
+            handler: c2a.edpWebserver()
         },
         {
             location: /^.*$/,

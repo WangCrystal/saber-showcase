@@ -8,6 +8,10 @@ define(function (require) {
     var dom = require('saber-dom');
     var Resolver = require('saber-promise');
     var firework = require('saber-firework');
+    var etpl = require('etpl');
+
+    etpl.config(require('../tpl/config.json'));
+    etpl.addFilter('date', require('../tpl/filters/date'));
 
     // 使用slide转场效果
     var slide = require('saber-viewport/transition/slide');
@@ -27,6 +31,8 @@ define(function (require) {
     var config = {
             // 加载公共模版
             template: require('tpl/common/main.tpl'),
+
+            templateConfig: require('tpl/config.json'),
 
             viewport: {
                 transition: 'slide'
