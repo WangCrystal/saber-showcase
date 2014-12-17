@@ -1,5 +1,7 @@
 var epr = require( 'edp-provider-rider' );
 var riderUI = require('rider-ui');
+var transfer = require('rebas-transfer');
+var c2a = require('c2a');
 
 function stylusPlugin( style ) {
     style.use(epr.plugin());
@@ -12,9 +14,6 @@ exports.input = __dirname;
 var path = require( 'path' );
 exports.output = path.resolve( __dirname, 'output' );
 
-// var moduleEntries = 'html,htm,phtml,tpl,vm,js';
-// var pageEntries = 'html,htm,phtml,tpl,vm';
-
 exports.getProcessors = function () {
     var stylusProcessor = new StylusCompiler({
             stylus: epr.stylus,
@@ -25,24 +24,25 @@ exports.getProcessors = function () {
                 'src/common/app.styl'
             ]
         });
-    var html2jsCompiler = new Html2JsCompiler({
-        extnames: 'tpl',
-        combine: true
-    });
-    var html2jsCleanner = new Html2JsCompiler({
-        extnames: 'tpl',
-        clean: true
-    });
     var cssProcessor = new CssCompressor();
     var moduleProcessor = new ModuleCompiler();
     var jsProcessor = new JsCompressor();
     var pathMapperProcessor = new PathMapper();
     var addCopyright = new AddCopyright();
 
+    var c2aHandler = c2a.edpBuild();
+
+    var transferHandler = transfer.edpBuild();
+
     return {
-        'default': [ stylusProcessor, html2jsCompiler, moduleProcessor, html2jsCleanner, pathMapperProcessor ],
+        'default': [
+            stylusProcessor,
+            transferHandler.builder, c2aHandler.builder, moduleProcessor, c2aHandler.clear, transferHandler.clear,
+            pathMapperProcessor
+        ],
         'release': [
-            stylusProcessor, cssProcessor, html2jsCompiler, moduleProcessor, html2jsCleanner,
+            stylusProcessor, cssProcessor,
+            transferHandler.builder, c2aHandler.builder, moduleProcessor, c2aHandler.clear, transferHandler.clear,
             jsProcessor, pathMapperProcessor, addCopyright
         ]
     };

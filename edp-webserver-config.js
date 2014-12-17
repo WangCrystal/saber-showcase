@@ -33,15 +33,15 @@ exports.getLocations = function () {
         },
         {
             location: /^\/route\/.*\.json\.js(:?$|\?)/,
-            handler: transfer.edpWebserver('route')
+            handler: transfer.edpWebserver('json/route')
         },
         {
             location: /^\/tpl\/.*\.json\.js(:?$|\?)/,
-            handler: transfer.edpWebserver('tpl')
+            handler: transfer.edpWebserver('json/tpl')
         },
         {
             location: /\.tpl\.js($|\?)/,
-            handler: html2js()
+            handler: transfer.edpWebserver('template')
         },
         {
             location: /^\/tpl\/.*\.js(:?$|\?)/,

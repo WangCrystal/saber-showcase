@@ -8,10 +8,6 @@ define(function (require) {
     var dom = require('saber-dom');
     var Resolver = require('saber-promise');
     var firework = require('saber-firework');
-    var etpl = require('etpl');
-
-    etpl.config(require('../tpl/config.json'));
-    etpl.addFilter('date', require('../tpl/filters/date'));
 
     // 使用slide转场效果
     var slide = require('saber-viewport/transition/slide');
@@ -21,7 +17,7 @@ define(function (require) {
     Resolver.disableExceptionCapture();
 
     // 加载路由配置信息
-    firework.load(require('../route/config.json'));
+    firework.load(require('route/config.json'));
 
     // 完成页面加载后隐藏splash
     firework.on('afterload', function () {
