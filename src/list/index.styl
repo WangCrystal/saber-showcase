@@ -29,13 +29,15 @@
         padding: 3px 0
         font-size: rem(16)
         line-height: rem(20)
-        &[data-state~=read]
-            color: #9b9b9b
         i
             color: #9b9b9b
             margin-left: 5px
             font-size: rem(14)
             vertical-align: middle
+
+    &[data-state~=read]
+        [data-role~=title]
+            color: #9b9b9b
 
     [data-role~=meta]
         display: block

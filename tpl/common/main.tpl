@@ -33,9 +33,9 @@
 <!-- for: ${list} as ${item}, ${index} -->
 
 <!-- if: ${item.comments} > 0 -->
-<a href="/post/${item.id}" class="news-item">
+<a href="/post/${item.id}" class="news-item" data-id="${item.id}">
 <!-- else -->
-<a href="${item.url}" target="_blank" class="news-item">
+<a href="${item.url}" target="_blank" class="news-item" data-id="${item.id}">
 <!-- /if -->
 
     <span data-role="meta">
