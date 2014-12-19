@@ -40,7 +40,7 @@
 
     <span data-role="meta">
         <span data-role="author">no.${item.no} by ${item.author}</span>
-        <span data-role="time">${item.createDate|date}</span>
+        <span data-role="time">${item.createDate}</span>
     </span>
 
     <!-- if: ${item.read} -->
