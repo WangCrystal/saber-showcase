@@ -19,11 +19,6 @@ define(function (require) {
     // 加载路由配置信息
     firework.load(require('route/config.json'));
 
-    // 完成页面加载后隐藏splash
-    firework.on('afterload', function () {
-        dom.hide(dom.g('splash-screen'));
-    });
-
     var config = {
             // 加载公共模版
             template: require('tpl/common/main.tpl'),
