@@ -8,7 +8,7 @@ define(function (require) {
     var extend = require('saber-lang/extend');
     var inherits = require('saber-lang/inherits');
     var dom = require('saber-dom');
-    var BaseView = require('saber-firework/View');
+    var BaseView = require('saber-mm/View');
 
     /**
      * 更新条目的阅读状态
