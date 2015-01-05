@@ -9,6 +9,9 @@ define(function (require) {
     var Resolver = require('saber-promise');
     var firework = require('saber-firework');
 
+    // 加载Rebas扩展
+    require('saber-firework/extension/rebas');
+
     // 使用slide转场效果
     var slide = require('saber-viewport/transition/slide');
 

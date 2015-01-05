@@ -1,5 +1,5 @@
 /**
- * @file list列表Action基类
+ * @file list列表Presenter基类
  * @author saber(saber@baidu.com)
  */
 
@@ -8,7 +8,7 @@ define(function (require) {
     var extend = require('saber-lang/extend');
     var bind = require('saber-lang/bind');
     var inherits = require('saber-lang/inherits');
-    var BaseAction = require('saber-firework/Action');
+    var BasePresenter = require('saber-firework/Presenter');
 
     var events = {
         'ready': function (isFirst) {
@@ -28,16 +28,16 @@ define(function (require) {
         }
     };
 
-    function Action(options) {
+    function Presenter(options) {
         options = options || {};
         extend(events, options.events || {});
         options.events = events;
 
-        BaseAction.call(this, options);
+        BasePresenter.call(this, options);
     }
 
-    inherits(Action, BaseAction);
+    inherits(Presenter, BasePresenter);
 
-    return Action;
+    return Presenter;
 
 });

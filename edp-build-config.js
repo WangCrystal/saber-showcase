@@ -26,7 +26,12 @@ exports.getProcessors = function () {
         });
     var cssProcessor = new CssCompressor();
     var moduleProcessor = new ModuleCompiler();
-    var jsProcessor = new JsCompressor();
+    var jsProcessor = new JsCompressor({
+        files: [
+            'src/**/*.js',
+            'dep/**/*.js'
+        ]
+    });
     var pathMapperProcessor = new PathMapper();
     var addCopyright = new AddCopyright();
 

@@ -9,7 +9,7 @@ define(function (require) {
     var inherits = require('saber-lang/inherits');
     var Resolver = require('saber-promise');
     var ajax = require('saber-ajax/ejson');
-    var BaseModel = require('saber-firework/Model');
+    var BaseModel = require('saber-firework/extension/RebasModel');
     var Storage = require('saber-storage');
 
     var KEY_READED = 'readlist';
@@ -33,7 +33,7 @@ define(function (require) {
      * @param {Object} data
      * @return {Object}
      */
-    Model.prototype.fulfill = function (data) {
+    Model.prototype.fill = function (data) {
         var readList = this.readList;
         var list = data.list;
         list.forEach(function (item) {

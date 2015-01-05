@@ -14,7 +14,7 @@
 
     <script>
     require.config({
-        'baseUrl': 'src',
+        'baseUrl': '/src',
         'paths': {
             'tpl': '../tpl',
             'route': '../route'
@@ -29,6 +29,10 @@
                 'name': 'saber-ajax',
                 'location': '../dep/saber-ajax/1.0.0/src',
                 'main': 'ajax'
+            },
+            {
+                'name': 'saber-mm',
+                'location': '../dep/saber-mm/0.1.0/src'
             },
             {
                 'name': 'saber-dom',
@@ -94,10 +98,6 @@
                 'name': 'saber-widget',
                 'location': '../dep/saber-widget/1.0.0/src',
                 'main': 'main'
-            },
-            {
-                'name': 'saber-env',
-                'location': '../dep/saber-env/1.0.0/src'
             }
         ]
     });
